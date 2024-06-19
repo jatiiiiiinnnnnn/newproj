@@ -1,0 +1,79 @@
+body {
+    background-color: black;
+    color: white;
+    height: 200vh;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    font-family: Arial, sans-serif;
+}
+
+.container {
+    position: fixed;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+    padding: 20px;
+    z-index: 10000;
+    opacity: 0; /* Initially hidden */
+    transition: opacity 2s ease-in-out;
+}
+.container.fade-in {
+    opacity: 1; /* Visible when the fade-in class is added */
+}
+.container .box {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    transform: rotate(-180deg);
+}
+
+
+.container .box h3 {
+    writing-mode: vertical-lr;
+    margin: 10px 0;
+    text-align: left;
+    position: relative;
+}
+
+.container .box h3 a {
+    color: white;
+    text-decoration: none;
+}
+
+.container .box h3 a:visited {
+    color: white;
+}
+
+.hover-box {
+    display: none;
+    width: 469px;
+    height: 443px;
+    background-color: black;
+    border: 1px solid white;
+    position: absolute;
+    top: 0;
+    right: 100%;
+    margin-left: 10px;
+    z-index: 10001;
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+    animation: fadeIn 0.5s ease-in-out;
+    transform: translateY(-50%) rotate(90deg);
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.box h3:hover .hover-box {
+    display: block;
+    opacity: 1;
+    cursor: pointer;
+}
+
